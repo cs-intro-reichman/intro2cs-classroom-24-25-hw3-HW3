@@ -29,7 +29,8 @@ public class Algebra {
 		for (int i = 0; i < x2; i++) {
 			x1++;
 		}
-		return x1;
+		// return x1;
+
 	}
 
 	// Returns x1 - x2
