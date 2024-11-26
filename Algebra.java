@@ -29,7 +29,7 @@ public class Algebra {
 		for (int i = 0; i < x2; i++) {
 			x1++;
 		}
-		// return x1;
+		return x1;
 
 	}
 
@@ -39,7 +39,7 @@ public class Algebra {
 		for (int i = 0; i < x2; i++) {
 			x1--;
 		}
-		return x1;
+		return 0;
 	}
 
 	// Returns x1 * x2
