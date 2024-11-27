@@ -44,12 +44,11 @@ public class LoanCalc {
 		double payment = loan / n;
 		rate = rate / 100;
 		double calcForce = endBalance(loan, rate, n, payment);
-		while ((calcForce = endBalance(loan, rate, n, payment)) > epsilon) {
+		while (Math.abs(calcForce) > epsilon) {
 			payment += epsilon;
 			counterPayments++;
-
 		}
-		// Replace the following statement with your code
+
 		return payment;
 	}
 
@@ -59,9 +58,10 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bisectionSolver(double loan, double rate, int n, double epsilon) {
+
 		rate = rate / 100;
 		double L = (loan / n);
-		double H = loan * rate;
+		double H = loan;
 		double mid = (L + H) / 2.0;
 		int counter = 0;
 		double tester;
