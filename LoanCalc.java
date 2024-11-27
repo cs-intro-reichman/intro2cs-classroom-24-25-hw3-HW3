@@ -64,11 +64,11 @@ public class LoanCalc {
 		iterationCounter = 0;
 
 		double L = (loan / n);
-		double H = (loan * rate);
+		double H = loan;
 		double mid = (H + L) / 2;
 		double tester;
 
-		while (Math.abs(H - L) >= epsilon) {
+		while (H - L > epsilon) {
 
 			tester = endBalance(loan, rate, n, mid);
 
