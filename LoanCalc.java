@@ -30,7 +30,7 @@ public class LoanCalc {
 	}
 
 	private static double endBalance(double loan, double rate, int n, double payment) {
-		rate = rate / 100.0;
+		rate = rate / 100.0 / 12;
 
 		for (int i = 0; i < n; i++) {
 			loan = (loan * (1 + rate) - payment);
@@ -67,7 +67,7 @@ public class LoanCalc {
 
 		rate = rate / 100.0;
 		double L = (loan / n);
-		double H = loan * (1 + rate);
+		double H = loan * (1 + rate / 12);
 		double mid = 0;
 		double tester;
 
