@@ -159,18 +159,19 @@ public class Algebra {
 	// Returns the integer part of sqrt(x)
 	public static int sqrt(int x) {
 		// Replace the following statement with your code
-		if (x == 0 || x == 1) {
-			return x;
-		}
 		int L = 1;
 		int H = x;
 		int sum = 0;
+
+		if (x == 0 || x == 1) {
+			return x;
+		}
 
 		while (L <= H) {
 			int mid = L + (H - 1) / 2;
 
 			if (mid == x / mid) {
-				return sum = mid;
+				return mid;
 			} else if (mid < x / mid) {
 				L = mid + 1;
 				sum = mid;

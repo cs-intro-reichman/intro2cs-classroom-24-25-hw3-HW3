@@ -68,7 +68,7 @@ public class LoanCalc {
 		double mid = (H + L) / 2;
 		double tester;
 
-		while (H - L > epsilon) {
+		while (H - L >= epsilon) {
 
 			tester = endBalance(loan, rate, n, mid);
 
