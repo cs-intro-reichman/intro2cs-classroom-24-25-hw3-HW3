@@ -31,7 +31,7 @@ public class LoanCalc {
 
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		rate = (rate + 100) / 100;
-		for (int i = 0; i < n; i++) {
+		for (int i = 1; i <= n; i++) {
 			loan = (loan - payment) * rate;
 		}
 		return loan;
@@ -44,9 +44,9 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
 		double pay = loan / n;
-		double calcForce;
+		double calcForce = endBalance(loan, rate, n, pay);
 
-		while ((calcForce = endBalance(loan, rate, n, pay)) > 0) {
+		while (calcForce > 0) {
 			pay += epsilon;
 			iterationCounter++;
 		}
@@ -60,11 +60,11 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bisectionSolver(double loan, double rate, int n, double epsilon) {
-		iterationCounter = 0;
+		iterationCounter = -1;
 		double L = loan / n;
 		double H = loan;
 		double mid = (H + L) / 2;
-		double tester = 0;
+		double tester;
 		while (H - L > epsilon) {
 
 			iterationCounter++;
@@ -79,7 +79,7 @@ public class LoanCalc {
 				mid = (H + L) / 2;
 			}
 		}
-
+		tester = endBalance(loan, rate, n, mid);
 		return mid;
 	}
 }
