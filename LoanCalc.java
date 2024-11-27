@@ -12,7 +12,7 @@ public class LoanCalc {
 		double loan = Double.parseDouble(args[0]);
 		double rate = Double.parseDouble(args[1]);
 		int n = Integer.parseInt(args[2]);
-		double payment = Double.parseDouble(args[3]);
+
 		// System.out.println("Loan = " + loan + ", interest rate = " + rate +
 		// "%,periods = " + n);
 
