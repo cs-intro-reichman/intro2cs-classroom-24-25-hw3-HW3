@@ -118,7 +118,7 @@ public class Algebra {
 		while (x2 != 0) {
 
 			if (x1 == 0) {
-				return 0;
+				return counter;
 			}
 
 			if (x1 == x2) {
