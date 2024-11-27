@@ -13,10 +13,10 @@ public class Algebra {
 		// System.out.println(plus(2, times(4, 2))); // 2 + 4 * 2
 		// System.out.println(pow(-2, 2)); // 5^3
 		// System.out.println(pow(3, 5)); // 3^5
-		// System.out.println(div(12, 3)); // 12 / 3
+		System.out.println(div(9, 3)); // 12 / 3
 		// System.out.println(div(12, 3)); // 5 / 5
 		// System.out.println(div(25, 7)); // 25 / 7
-		System.out.println(mod(25, 7)); // 25 % 7
+		// System.out.println(mod(25, 7)); // 25 % 7
 		// System.out.println(mod(120, 6)); // 120 % 6
 		// System.out.println(sqrt(36));
 		// System.out.println(sqrt(263169));
@@ -112,10 +112,10 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2
 	public static int div(int x1, int x2) {
-		int counter = 0;
+		int counter = 1;
 		int mark;
 		mark = (x1 < 0 || x2 < 0) ? -1 : 1;
-		while (x2 != 0) {
+		while (x2 != 0 && x1 >= x2) {
 
 			if (x1 == 0) {
 				return counter;
@@ -125,24 +125,14 @@ public class Algebra {
 				return counter += 1;
 			}
 
-			if (x1 > x2) {
-				for (int i = 0; x1 == 0; i++) {
-					x1 = minus(x1, x2);
-					counter++;
-				}
-				return counter = times(counter, mark);
+			while (x1 > x2) {
+				x1 = minus(x1, x2);
+				counter++;
 			}
-
-			if (x2 > x1) {
-				for (int i = 0; x2 == 0; i++) {
-					x2 = minus(x2, x1);
-					counter++;
-				}
-				return counter = times(counter, mark);
-			}
+			return counter = times(counter, mark);
 		}
 
-		return counter;
+		return counter = times(counter, mark);
 	}
 
 	// Returns x1 % x2
@@ -168,11 +158,11 @@ public class Algebra {
 		}
 
 		while (L <= H) {
-			int mid = L + (H - 1) / 2;
+			int mid = L + (H - L) / 2;
 
-			if (mid == x / mid) {
+			if (mid * mid == x) {
 				return mid;
-			} else if (mid < x / mid) {
+			} else if (mid * mid < x) {
 				L = mid + 1;
 				sum = mid;
 			} else {
