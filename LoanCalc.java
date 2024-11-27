@@ -77,8 +77,10 @@ public class LoanCalc {
 
 			if (tester > 0) {
 				L = mid;
+				mid = (L + H) / 2;
 			} else {
 				H = mid;
+				mid = (L + H) / 2;
 
 			}
 			iterationCounter++;
