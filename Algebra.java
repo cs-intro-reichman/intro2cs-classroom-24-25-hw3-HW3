@@ -13,7 +13,7 @@ public class Algebra {
 		// System.out.println(plus(2, times(4, 2))); // 2 + 4 * 2
 		// System.out.println(pow(-2, 2)); // 5^3
 		// System.out.println(pow(3, 5)); // 3^5
-		// System.out.println(div(9, 3)); // 12 / 3
+		// System.out.println(div(0, 3)); // 12 / 3
 		// System.out.println(div(12, 3)); // 5 / 5
 		// System.out.println(div(25, 7)); // 25 / 7
 		// System.out.println(mod(25, 7)); // 25 % 7
@@ -114,36 +114,37 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 		int counter = 0;
 		int mark;
-		mark = (x1 < 0 || x2 < 0) ? -1 : 1;
-		while (x2 != 0 && x1 >= x2) {
-
-			if (x1 == 0) {
-				return counter;
-			}
-
-			if (x1 == x2) {
-				return counter += 1;
-			}
-
-			while (x1 > x2) {
-				x1 = minus(x1, x2);
-				counter++;
-			}
-			return counter = times(counter, mark);
+		mark = (x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0) ? -1 : 1;
+		if (x1 < 0) {
+			x1 = times(x1, -1);
+		}
+		if (x2 < 0) {
+			x2 = times(x2, -1);
+		}
+		while (x1 >= x2) {
+			x1 = minus(x1, x2);
+			counter = plus(counter, 1);
 		}
 
-		return counter = times(counter, mark);
+		return times(counter, mark);
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-
-		for (int i = 0; i < x2; i++) {
-			if (x1 >= x2) {
-				x1 = minus(x1, x2);
-			}
+		int mark = 1;
+		if (x1 < 0) {
+			mark = -1;
+			x1 = times(x1, -1);
 		}
-		return x1;
+		if (x2 < 0) {
+			x2 = times(x2, -1);
+		}
+
+		while (x1 >= x2) {
+			x1 = minus(x1, x2);
+		}
+
+		return times(x1, mark);
 	}
 
 	// Returns the integer part of sqrt(x)
@@ -173,3 +174,27 @@ public class Algebra {
 		return sum;
 	}
 }
+
+// while (x2 != 0 && x1 >= x2) {
+// if (x1 == 0) {
+// return 0;
+// }
+// if (x1 < 0) {
+// x1 = times(x1, -1);
+// }
+// if (x2 < 0) {
+// x2 = times(x2, -1);
+// }
+
+// if (x1 == x2) {
+// return 1;
+// }
+
+// while (x1 > x2) {
+// x1 = minus(x1, x2);
+// counter++;
+// }
+// return counter = times(counter, mark);
+// }
+// return counter = times(counter, mark);
+// }
