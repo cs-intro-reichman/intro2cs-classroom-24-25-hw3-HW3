@@ -5,7 +5,6 @@ public class Anagram {
 		System.out.println(isAnagram("William Shakespeare", "I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie", "Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle", "I am Lord Voldemort")); // true
-
 		System.out.println(preProcess("What? No way!!!"));
 
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
@@ -36,15 +35,11 @@ public class Anagram {
 				}
 				if (testar == 0) {
 					return false;
-				}
-				if (testar == str1.length()) {
+				} else if (testar == str1.length()) {
 					return true;
-
 				}
 			}
-
 		}
-
 		return false;
 	}
 
@@ -81,7 +76,9 @@ public class Anagram {
 		while (count < str.length()) {
 			if (workString.isEmpty()) {
 				break;
-			} else {
+			}
+
+			else {
 				int n = (int) (Math.random() * (str.length() - count));
 				// bulding the new string, check n in test kus amak!
 				newString = newString + workString.charAt(n);
