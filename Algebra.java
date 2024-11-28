@@ -174,27 +174,3 @@ public class Algebra {
 		return sum;
 	}
 }
-
-// while (x2 != 0 && x1 >= x2) {
-// if (x1 == 0) {
-// return 0;
-// }
-// if (x1 < 0) {
-// x1 = times(x1, -1);
-// }
-// if (x2 < 0) {
-// x2 = times(x2, -1);
-// }
-
-// if (x1 == x2) {
-// return 1;
-// }
-
-// while (x1 > x2) {
-// x1 = minus(x1, x2);
-// counter++;
-// }
-// return counter = times(counter, mark);
-// }
-// return counter = times(counter, mark);
-// }

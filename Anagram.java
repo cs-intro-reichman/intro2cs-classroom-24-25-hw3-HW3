@@ -42,29 +42,26 @@ public class Anagram {
 		// Replace the following statement with your code
 		str = str.replaceAll("[^a-zA-Z\\s]", "");
 		str = str.toLowerCase();
-		int i = 0;
-
-		while (i < str.length() && str.charAt(i) != ' ') {
-			i++;
+		int x = 0;
+		while (x < str.length() && str.charAt(x) != ' ') {
+			x++;
 		}
 
-		String A = "";
-		String B = "";
+		String word1 = "";
+		String word2 = "";
 
-		if (i < str.length())
-			A = str.substring(0, i + 1);
+		if (x < str.length())
+			word1 = str.substring(0, x + 1);
 		else
-			A = str;
+			word1 = str;
 
-		if (i + 1 < str.length())
-			B = str.substring(i + 1);
+		if (x + 1 < str.length())
+			word2 = str.substring(x + 1);
 		else
-			B = "";
+			word2 = "";
 
-		B = B.replaceAll("[^a-zA-Z]", "");
-
-		return A + B;
-
+		word2 = word2.replaceAll("[^a-zA-Z]", "");
+		return word1 + word2;
 	}
 
 	// Returns a random anagram of the given string. The random anagram consists of
