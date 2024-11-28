@@ -31,7 +31,6 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
-
 		while (str1.length() == str2.length()) {
 			for (int i = 0; i < str1.length(); i++) {
 				int testar = 0;
@@ -62,8 +61,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		// Replace the following statement with your code
-		str = str.replaceAll("[^a-zA-Z\\s]", "");
-		str = str.toLowerCase();
+		str = str.replaceAll("[^a-zA-Z\\s]", "").toLowerCase();
 		int x = 0;
 		while (x < str.length() && str.charAt(x) != ' ') {
 			x++;
@@ -90,6 +88,22 @@ public class Anagram {
 	// the same
 	// characters as the given string, re-arranged in a random order.
 	public static String randomAnagram(String str) {
-		return "";
+		int count = 0;
+		String workString = str;
+		String newString = "";
+
+		while (count < str.length()) {
+			if (workString.isEmpty()) {
+				return newString + workString;
+			} else {
+				int n = (int) (Math.random() * (str.length() - count));
+				// bulding the new string, check n in test kus amak!
+				newString = newString + workString.charAt(n);
+				// take the char and rpalce with ""
+				workString = workString.replace(String.valueOf(newString.charAt(newString.length() - 1)), "");
+				count++;
+			}
+		}
+		return newString + workString;
 	}
 }
