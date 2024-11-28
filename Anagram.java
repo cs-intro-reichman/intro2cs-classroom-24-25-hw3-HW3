@@ -94,8 +94,10 @@ public class Anagram {
 
 		while (count < str.length()) {
 			if (workString.isEmpty()) {
-				return newString + workString;
-			} else {
+				break;
+			}
+
+			else {
 				int n = (int) (Math.random() * (str.length() - count));
 				// bulding the new string, check n in test kus amak!
 				newString = newString + workString.charAt(n);
@@ -103,7 +105,16 @@ public class Anagram {
 				workString = workString.replace(String.valueOf(newString.charAt(newString.length() - 1)), "");
 				count++;
 			}
+
+			for (int i = 0; i < str.length(); i++) {
+				for (int j = 0; j < str.length(); j++) {
+					if (str.charAt(j) == str.charAt(i) && j != i) {
+						return newString + str.charAt(j);
+					}
+				}
+			}
 		}
-		return newString + workString;
+		return newString + " " + workString;
 	}
+
 }
